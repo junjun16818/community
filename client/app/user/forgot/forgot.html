@@ -1,0 +1,27 @@
+<background [banner]="banner" [title]="'忘记密码'"></background>
+
+<div class="container" style="text-align:center">
+
+    <div class="cls-content">
+        <div class="cls-content-sm panel">
+            <div class="panel-body">
+                <p class="pad-btm">输入您的电子邮件地址，我们会发送一个重置密码链接. </p>
+                <form action="pages-login.html">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button class="btn btn-primary " style="font-size: 14px;" type="submit">发送邮件</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="pad-ver">
+            <a [routerLink]="'/signin'" class="btn-link mar-rgt">返回到登录</a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,114 @@
+<background [banner]="banner" [title]="'后台管理'"></background>
+
+<div class="container dashboard">
+    <div class=" col-md-12" style="padding:0px;margin-top:20px">
+        <div class="panel panel-default "  style="">
+            <div class="panel-body" style="padding: 15px 6px;">
+                <ul class="nav nav-tabs" role="tablist" style="font-weight: bold;">
+                    <li role="presentation" class="active"><a href="#money" aria-controls="money" role="tab" data-toggle="tab">赞助商</a></li>
+                    <li role="presentation"><a href="#salary" aria-controls="salary" role="tab" data-toggle="tab">社区分红</a></li>
+                    <li role="presentation"><a href="#pay" aria-controls="pay" role="tab" data-toggle="tab">提现申请</a></li>
+                    <li role="presentation"><a href="#posts" aria-controls="posts" role="tab" data-toggle="tab">被删除的帖子</a></li>
+                </ul>
+                
+                <div class="tab-content center" style="font-weight: 400;">
+                    <div role="tabpanel" class="tab-pane  latest-panel active" id="money">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#moneyModal" style="float: right;margin: 10px;border-radius:0px;">创建</button>
+
+                        <table class="table">
+                            <tr>
+                                <th>公司名</th>
+                                <th>金额</th>
+                                <th>创建日期</th>
+                                <th>到期日期</th>
+                                <th>logo</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>北京光音网络</td>
+                                <td>1000 RMB</td>
+                                <td>2016-12-01</td>
+                                <td>2017-01-01</td>
+                                <td><img src="/images/goyoo.png" style="height:19px;" alt=""></td>
+                                <td><a >编辑</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane  latest-panel" id="salary">
+                        <table class="table">
+                            <tr>
+                                <th>用户名</th>
+                                <th>邮箱</th>
+                                <th>当月贡献</th>
+                                <th>当月分红</th>
+                                <th>总贡献</th>
+                                <th>总分红</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>junjun16818</td>
+                                <td>junjun16818@hotmail.com</td>
+                                <td>200</td>
+                                <td>1290</td>
+                                <td>200</td>
+                                <td>1290</td>
+                                <td><a>发薪</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane  latest-panel" id="pay">
+                        <table class="table">
+                            <tr>
+                                <th>用户名</th>
+                                <th>邮箱</th>
+                                <th>申请金额</th>
+                                <th></th>
+                            </tr> 
+                            <tr>
+                                <td>junjun16818</td>
+                                <td>junjun16818@hotmail.com</td>
+                                <td>1290</td>
+                                <td><a>支付</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane  latest-panel" id="posts">
+                        <table class="table">
+                            <tr>
+                                <th>标题</th>
+                                <th>创建者</th>
+                                <th>删除者</th>
+                                <th>删除理由</th>
+                            </tr> 
+                            <tr>
+                                <td>angular2 哈哈噩耗</td>
+                                <td>junjun16818</td>
+                                <td>admin</td>
+                                <td><a>涉嫌广告</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="moneyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>

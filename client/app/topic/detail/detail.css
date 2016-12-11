@@ -1,0 +1,57 @@
+input {
+    outline: none;
+}
+.bread-crumb {
+    height: 60px;
+}
+
+.bread-crumb ul {
+    margin: 0;
+    padding: 0;
+}
+
+.bread-crumb ul li {
+    list-style: none;
+    float: left;
+    line-height: 59px;
+}
+.bread-crumb ul li a, .bread-crumb ul li span {
+    margin-right: 10px;
+    color: #1976D2;
+    font-size: 14px;
+}
+ 
+.blog-detail .full-post h3.post-name { 
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: lighter!important;
+    font-size: 30px;
+    color: #323a45;
+}
+
+.pure-content {
+    padding-bottom: 60px;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    color: #5e6d81;
+}
+.post-author .user-name .view-user-profile {
+    height: 32px;
+    line-height: 32px;
+    color: #000;
+}
+
+.pure-content a {
+    color: #1976D2;
+}
+
+.post-date {
+    color: #000;
+    font-size: 10px;
+    line-height: 32px;
+}
+
+.accept{
+    color: #5fba7d;
+}

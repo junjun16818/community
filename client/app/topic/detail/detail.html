@@ -1,0 +1,179 @@
+
+<background [banner]="banner" [title]="topic.title"></background>
+
+<div class="container blog-detail" style="">
+    
+    <div class="col-md-9" style="padding:0px;" >
+        <div class="col-md-12" style="padding:0px">
+            <div class="bread-crumb hidden-sm hidden-xs">
+                <ul>
+                    <li><a href="/blog/">社区{{category.name}}</a></li>
+                    <li><span>&gt;</span></li>
+                    <li><a style="color:#5e6d81" href="javascript:void(0)">{{topic.title}}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="post-author">
+            <span class="avatar">
+                <img [src]="topic.avatar" alt="" style="border-width:0px;max-height:32px;max-width:32px;">
+            </span>
+            
+            <span class="profile-usercard-hover" data-profile-userid="55fb7244-abdd-46bf-8c97-7ea3441bc8cc">
+                <span class="user-name">
+                    <a class="internal-link view-user-profile" href="http://blogs.msdn.com/214804/ProfileUrlRedirect.ashx">
+                        {{topic.username}}
+                    </a>
+                </span>
+            </span>
+        </div>
+        <div class="post-date">
+            <span class="value">
+                {{topic.created | date:'yyyy年MM月dd日hh点mm分'}}
+            </span>
+        </div>
+        <div class="pure-content">
+
+            <div class="full-post" style="padding: 20px;padding-left:10px; padding-top:0px;margin: 20px 0;border: 1px solid #eee;border-left-width: 1px; border-radius: 3px;">
+                
+                <div class="post-content user-defined-markup">
+                    <div style="width:50px;float:left;font-size:30px;padding:10px;text-align: center;margin-left:5px;">
+                        <div style="height: 20px;overflow: hidden;" (click)="voteTopic('up')">
+                            <i class="fa fa-sort-up fa-lg" aria-hidden="true" style="cursor: pointer;height:15px;"></i>
+                        </div>
+                        <div style="font-size: 22px;margin-top:5px;">{{ topic.favorite || 0 }}</div>
+                        <div style="height: 20px;overflow: hidden;" (click)="voteTopic('down')">
+                            <i  class="fa fa-sort-desc fa-lg" aria-hidden="true" style="cursor: pointer;margin-top: -17px;display: block;"></i>
+                        </div>
+                        
+                        <div (click)="favorite()">
+                            <i  class="fa fa-star-o" aria-hidden="true" style="font-size:25px;cursor: pointer;"></i>
+                        </div>
+                        
+                    </div>
+                    <div style="padding:10px;width:auto;margin-left:55px">
+                        <div id="test-editormd" style="padding:0px">
+                            <textarea style="display:none;">{{topic.markdown}}</textarea>
+                        </div>
+                    </div>
+                    <div style="clear: left;"></div>
+                    <!--<div [innerHtml]="topic.html"></div>             -->
+                </div>
+                <div class="post-attachment-viewer">
+                    <hr>
+                    <div style="text-align:right;font-size:14px;color:#1b809e">
+                        <span>{{ topic.type === 'question' ? '回答' : '评论'}} {{comments.length}}</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <span>浏览 {{pageView}}</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <span>收藏 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default "  style="margin-top:20px;">
+                <div class="panel-heading">{{comments.length}}个{{ topic.type === 'question' ? '回答' : '评论'}}</div>
+                <div class="panel-body" style="padding: 0px 6px;">
+                    <div *ngFor="let comment of comments">
+                        <span class="value" style="margin-left:20px;font-size:10px;">
+                            {{comment.created | date:'yyyy年MM月dd日hh点mm分'}}
+                        </span>
+                        <div>
+                            <div style="width:50px;float:left;font-size:30px;padding:10px;text-align: center;margin-left:5px;">
+                                <div style="height: 20px;overflow: hidden;" (click)="vote(comment, 'up')">
+                                    <i class="fa fa-sort-up fa-lg" aria-hidden="true" style="cursor: pointer;height:15px;"></i>
+                                </div>
+                                <div style="font-size: 22px;margin-top:5px;">{{ comment.vote || 0 }}</div>
+                                <div style="height: 20px;overflow: hidden;" (click)="vote(comment, 'down')">
+                                    <i class="fa fa-sort-desc fa-lg" aria-hidden="true" style="cursor: pointer;margin-top: -17px;display: block;"></i>
+                                </div>
+                                <template [ngIf]="topic.type === 'question'">
+                                    <i class="fa fa-check"  *ngIf="comment._id === topic.accept_comment_id || topic.user_id === userService.user._id && comment.user_id !== userService.user._id" (click)="accept(comment)" [ngClass]="{'accept': comment._id === topic.accept_comment_id}" aria-hidden="true" style="font-size:25px;cursor: pointer;"></i>
+                                </template>
+                            </div>
+                            <div style="padding:10px;width:auto;margin-left:55px">
+                                
+                                <div [id]="comment._id" style="padding:0px;padding-top:10px">
+                                    <textarea style="display:none;">{{comment.markdown}}</textarea>
+                                </div>
+
+                            </div>
+                            <div style="clear: left;"></div>
+                        </div>
+
+                        <div >
+                            <div style="float: left;width: 50px;text-align: center;margin-left: 5px;margin-top: 20px;color:#0143A3" >
+                                <a href="javascript:void(0)" (click)="setReplyInput(comment)">回复</a>({{comment.replyList.length}})
+                            </div>
+                            <div style="float:right;font-size: 20px;margin-right: 15px;">
+                                <div style="float:left;padding-right:5px;">
+                                    <img alt="devmiao" [src]="comment.avatar" style="width:35px; height:35px;" username="devmiao" data-pin-nopin="true">
+                                </div>
+                                <div style="line-height:35px;float:left;font-size:12px">
+                                    <div style="margin-top:-5px;">
+                                        {{comment.username}}
+                                    </div>
+                                    <div style="margin-top:-19px;">
+                                        威望 : 10
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div style="clear:left;clear:right"></div>
+                        </div>
+                        <div style="padding: 0px 15px 15px 15px;" *ngIf="replyComment._id === comment._id">
+                            <div style="margin-top:5px;">
+                                <div style="width:100px;float:right;">
+                                    <button (click)="reply(replyText)" style="width:100%;height:30px">回复</button>
+                                </div>
+                                <div style="width:auto;margin-right:110px">
+                                    <input type="text" #replyText style="width:100%;height:30px;padding-left:5px" [placeholder]="'@'+toReply.username" [(ngModel)]="replyValue">
+                                </div>
+                            </div>
+                            <div style="clear:left"></div>
+                        </div>
+                        <div class="panel panel-default " *ngIf="comment.replyList.length"  style="margin:0px 15px;">
+                            <div class="panel-body" style="max-height: 305px;overflow-y: auto;padding:15px 15px 10px 15px">
+                                <div style="" *ngFor="let _reply of comment.replyList;let i = index" style="margin-bottom:15px">
+                                    <div style="float:left;width:30px;">
+                                        <img alt="devmiao" [src]="_reply.avatar" style="width:30px; height:30px;" username="devmiao" data-pin-nopin="true">
+                                    </div>
+                                    <div style="width:auto;margin-left:40px;font-size:12px;">
+                                        <div style="color:#428bca">
+                                            {{_reply.username}}: <span *ngIf="_reply.username!==_reply.to_username">@{{_reply.to_username || ''}}</span>
+                                        </div>
+                                        <div style="">
+                                            {{_reply.content}}
+                                        </div>
+                                        <div style="float:right">
+                                            {{getDateAgo(_reply.created)}} <a href="javascript:void(0)" (click)="setReplyInput(comment, _reply)">回复</a>
+                                        </div>
+                                    </div>
+                                    <hr *ngIf="i!==comment.replyList.length-1">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <hr>
+
+                    <div editor-md id="editor" style="height:450px" image="true">
+                        <textarea style="display:none;"></textarea>
+                    </div>
+
+
+                    <div  class="col-md-12" style="padding:0px;margin-bottom:10px;">
+                        <button class="btn btn-primary" (click)="comment(captcha.value)" style="float:right;border-radius: 0px;margin-right:0px;"> &nbsp;&nbsp;&nbsp;提交&nbsp;&nbsp;&nbsp;</button>
+                        <img style="margin-right:10px;height:30px;float:right" src="/captcha" onclick="this.src='/captcha?'+Math.random()" alt="">
+                        <input type="text" name="captcha" #captcha  placeholder="验证码" required style="color:#000;height:30px;width:80px;float:right;margin-right:10px">
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <tags *ngIf="topic.category_id" [type]="topic.category_id"></tags>
+</div>
+
+

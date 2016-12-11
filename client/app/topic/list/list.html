@@ -1,0 +1,50 @@
+
+<background [banner]="banner" [title]="'社区'+(category.name || '')"></background>
+
+<div class="container">
+    
+    <div class="col-md-9" style="padding-left:0px">
+        <div class="tool-bar">
+            <div class="tab">
+                <ul style="padding:0px">
+                    <li [ngClass]="{'active': !sortType}"><a [routerLink]="'/'+topicType">发布时间</a></li>
+                    <li [ngClass]="{'active': sortType==='viewMost'}"><a  [routerLink]="'/'+topicType+'/viewMost'">浏览量</a></li>
+                    <li [ngClass]="{'active': sortType==='topRated'}"><a [routerLink]="'/'+topicType+'/topRated'" >点赞人数</a></li>
+
+                    <li style="float:right">
+                        <a style="background:#00a3d9;color:#fff"  [routerLink]="'/create/'+topicType" >
+                            <i class="fa " [ngClass]="{'fa-question-circle': topicType==='question','fa-file': topicType==='note','fa-plus': topicType==='news'}" aria-hidden="true"></i> 
+                            {{'创建'+category.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="clear:left"></div>
+        <div class="topic-list">
+            <div class="topic-item" *ngFor="let topic of list">
+                <h2 class="topic-title"><a title="{{topic.title}}" [routerLink]="'/topic/'+topic._id" href="">{{topic.title}}</a></h2>
+                <div class="topic-date">
+                    <span>{{topic.username || 'zzwqlr' }} , {{topic.created | date:'yyyy年MM月dd日hh点mm分'}} </span>
+                </div>
+                <p class="topic-summary"> 
+                    {{topic.content }}
+                </p>
+                <div class="topic-author"></div>
+                <div class="topic-meta">
+                    <ul>
+                        <li><i class="fa fa-eye"></i><span>{{topic.readCount || 0 }}</span></li>
+                        <li><i class="fa fa-thumbs-o-up"></i><span>{{topic.like || 0 }}<span></span></span></li>
+                    </ul>
+                </div>
+                <div class="tag-list">
+                    <ul>
+                        <li *ngFor="let tag of topic.tags"><a href="/blog/tags/{{tag}}">{{tag}}</a></li>
+                    </ul>
+                </div>
+                <div style="clear:left"></div>
+            </div>
+        </div>
+    </div>
+    <tags *ngIf="category._id" [type]="category._id"></tags>
+</div>

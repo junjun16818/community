@@ -1,0 +1,39 @@
+
+<background [banner]="banner" [title]="'创建账户'"></background>
+
+<div class="container" style="text-align:center">
+    <div class="cls-content">
+        <div class="cls-content-sm panel">
+            <div class="panel-body">
+                <p class="pad-btm">创建新用户</p>
+                <form (submit)="register()" method="POST">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                            <input type="text" class="form-control" minlength="6" maxlength="12" required [(ngModel)]="username" name="username" [placeholder]="'用户名' ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                            <input type="email" class="form-control" maxlength="50" required [(ngModel)]="email" name="email" [placeholder]="'邮箱' ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                            <input type="password" minlength="6" maxlength="20" class="form-control" required [(ngModel)]="password" name="password" [placeholder]="'密码'">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" style="font-size: 14px;" type="submit">
+                        注册
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="pad-ver">
+				已经拥有账户了？  <a [routerLink]="'/signin'" class="btn-link mar-rgt">登录</a>
+        </div>
+    </div>
+    
+</div>

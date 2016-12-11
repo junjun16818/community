@@ -1,0 +1,23 @@
+<background [banner]="banner" [title]="title"></background>
+
+<div class="container">
+    <form  #f="ngForm" (submit)="create(f)" >
+        <div class="col-md-6" style="padding-left:0px;padding-right:5px;">
+            <input type="text" value="test Title" [(ngModel)]="data.title" required name="title"  class="form-control" id="标题" placeholder="标题" style="margin:20px 0px;;border-radius: 0px;">
+        </div>
+        <div class="col-md-6"  style="margin:20px 0px;padding-right:0px;padding-left:5px">
+            <input type="text"  id="tags" class="form-control" value="asdf,fefe" placeholder="标签">
+        </div>
+        <div editor-md id="editor" style="height:450px" image="true">
+            <textarea style="display:none;"></textarea>
+        </div>
+        <div  class="col-md-6" style="padding:0px;margin-bottom:50px;">
+            
+        </div>
+        <div  class="col-md-6" style="padding:0px;margin-bottom:50px;">
+            <button class="btn btn-primary" style="float:right;border-radius: 0px;margin-right:10px;"> &nbsp;&nbsp;&nbsp;提交&nbsp;&nbsp;&nbsp;</button>
+            <img style="margin-right:10px;height:30px;float:right" src="/captcha" onclick="this.src='/captcha?'+Math.random()" alt="">
+            <input type="text" name="captcha" [(ngModel)]="data.captcha"  placeholder="验证码" required style="color:#000;height:30px;width:80px;float:right;margin-right:10px">
+        </div>
+    </form>
+</div>

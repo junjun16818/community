@@ -1,0 +1,35 @@
+
+ul li{
+    float: left;
+    list-style: none;
+}
+
+.tag-list ul li a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    color: #33373a;
+    background-color: #ebf0f5;
+    font-size: 14px;
+}
+
+.tag-list ul li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.tag-list ul {
+    margin: 0;
+    padding: 0;
+}
+
+.right-sidebar .sidebar-content h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #323a45;
+}

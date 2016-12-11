@@ -1,0 +1,108 @@
+
+ul li{
+
+    float: left;
+    list-style: none;
+}
+
+.tool-bar ul li{
+    margin-right: 10px;
+}
+
+a{
+    text-decoration:none
+}
+
+.tool-bar{
+    margin-top:30px;
+}
+
+.tool-bar .tab ul li a{
+    text-align: center;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #edf0f5;
+    font-weight: 400;
+    display: block;
+    color: #323a45;
+}
+
+.tab ul li.active a {
+    font-weight: 400;
+    border-bottom: 4px solid #00a3d9;
+}
+
+.topic-list .topic-item {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CCC;
+}
+
+.topic-list .topic-item h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+.topic-list .topic-item .topic-date {
+    color: #89919c;
+    font-size: 12px;
+    line-height: 18px;
+}
+.topic-list .topic-item h2 a {
+    /*display: block;*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #33373a;
+}
+.topic-list .topic-item p {
+    font-size: 14px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    line-height: 22px;
+    color: #5e6d81;
+}
+.topic-list .topic-item .topic-meta {
+    position: absolute;
+    top: 63px;
+    right: 10px;
+}
+.topic-list .topic-item .topic-meta ul li span {
+    color: #89919c;
+    font-size: 12px;
+}
+
+.topic-list .topic-item .topic-meta ul li i {
+    margin-right: 4px;
+    margin-left: 8px;
+    vertical-align: middle
+}
+
+.create-button a {
+    background-color: #1976D2
+}
+
+.tag-list ul li a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    color: #33373a;
+    background-color: #ebf0f5;
+    font-size: 14px;
+}
+
+.tag-list ul li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.tag-list ul {
+    margin: 0;
+    padding: 0;
+}

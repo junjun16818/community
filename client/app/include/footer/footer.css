@@ -1,0 +1,86 @@
+.main-footer nav {
+    padding: 48px;
+}
+.background-midnight {
+    background: #263238;
+    color: #fff;
+}
+.grid-fluid {
+}
+.grid-fluid, .grid-fixed {
+    margin: 0 auto;
+}
+.grid-fluid:after, .grid-fluid:before {
+    content: '.';
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+}
+.grid-fluid .c2 {
+    width: 14.58333%;
+}
+
+.grid-fluid .c1, .grid-fluid .c2, .grid-fluid .c3, .grid-fluid .c4, .grid-fluid .c5, .grid-fluid .c6, .grid-fluid .c7, .grid-fluid .c8, .grid-fluid .c9, .grid-fluid .c10, .grid-fluid .c11, .grid-fluid .c12 {
+    margin-right: 1.04167%;
+    margin-left: 1.04167%;
+}
+.grid-fluid .c1, .grid-fixed .c1, .grid-fluid .c2, .grid-fixed .c2, .grid-fluid .c3, .grid-fixed .c3, .grid-fluid .c4, .grid-fixed .c4, .grid-fluid .c5, .grid-fixed .c5, .grid-fluid .c6, .grid-fixed .c6, .grid-fluid .c7, .grid-fixed .c7, .grid-fluid .c8, .grid-fixed .c8, .grid-fluid .c9, .grid-fixed .c9, .grid-fluid .c10, .grid-fixed .c10, .grid-fluid .c11, .grid-fixed .c11, .grid-fluid .c12, .grid-fixed .c12 {
+    display: inline;
+    float: left;
+}
+
+.main-footer nav h3 {
+    font-size: 21px;
+}
+.main-footer h3 {
+    font-size: 20px;
+}
+.text-headline, .docs-content h3 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.main-footer ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+table th, .text-subhead, .text-body, .docs-content p, .docs-content ul, .docs-content ol {
+    margin: 0 0 24px 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    padding: 0;
+}
+
+.main-footer ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-footer .logo-inverse-large {
+    background: url(/images/shield-large.png) 0 0/contain no-repeat;
+    height: 150px;
+    width: 150px;
+    max-width: 100%;
+}
+
+.grid-fluid .c3 {
+    width: 22.91667%;
+}
+
+.main-footer footer {
+    text-align: left;
+    padding: 16px 68px;
+}
+.background-midnight {
+    background: #263238;
+    color: #fff;
+}
